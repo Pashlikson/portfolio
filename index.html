@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Automation & Integration Specialist | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="styles.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="stylesheet" href="hero-anim.css">
+
+  <!-- hreflang for SEO -->
+  <link rel="alternate" href="?lang=en" hreflang="en">
+  <link rel="alternate" href="?lang=uk" hreflang="uk">
+  <link rel="alternate" href="." hreflang="x-default">
+
+  <!-- tiny styling for language switch -->
+  <style>
+    .lang-switch{position:fixed;right:16px;top:16px;z-index:70;display:flex;gap:8px}
+    .lang-switch button{border:1px solid var(--border,#e5e7eb);background:#fff;padding:.35rem .6rem;border-radius:10px;font-weight:600;cursor:pointer}
+    .lang-switch button[aria-pressed="true"]{background:var(--brand-600,#7c3aed);color:#fff;border-color:#6d28d9}
+    @media (max-width:768px){.lang-switch{right:12px;top:12px}}
+  </style>
+
+  <!-- highlight.js -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/xml.min.js"></script>
+  <script>window.addEventListener('DOMContentLoaded',()=>{hljs.highlightAll();});</script>
+</head>
+
+<body>
+  <!-- LOGO (top-left; mirrors the language switch) -->
+  <div class="logo-top" aria-label="Home">
+    <img src="img/favicon.png" alt="Automation & Integration logo">
+  </div>
+
+  <!-- language switch -->
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang="en" aria-pressed="true">EN</button>
+    <button type="button" data-lang="uk" aria-pressed="false">UK</button>
+  </div>
+
+  <!-- HERO (full viewport height) -->
+  <header class="site-header" id="home">
+    <div class="orbs" aria-hidden="true">
+      <i class="orb" style="--size:160px;--x:6%;  --y:22%; --dx:28px;  --dy:-18px; --dur:22s; --delay:-4s"></i>
+      <i class="orb" style="--size:96px; --x:78%; --y:14%; --dx:-22px; --dy:26px;  --dur:16s; --delay:-2s"></i>
+      <i class="orb" style="--size:132px;--x:64%; --y:72%; --dx:-30px; --dy:-22px; --dur:19s; --delay:-6s"></i>
+      <i class="orb" style="--size:72px; --x:18%; --y:68%; --dx:18px;  --dy:16px;  --dur:14s; --delay:-3s"></i>
+      <i class="orb" style="--size:220px;--x:86%; --y:48%; --dx:-36px; --dy:12px; --dur:26s; --delay:-8s"></i>
+    </div>
+    <div class="container header-inner">
+      <h1 class="title">
+        <span data-i18n="hero.title1">Automation &amp; Integration Specialist</span>
+        <span class="subtitle" data-i18n="hero.title2">Portfolio</span>
+      </h1>
+      <p class="tagline" data-i18n="hero.tagline">
+        Streamlining workflows and connecting systems to drive efficiency and innovation.
+        Transforming complex processes into seamless automated solutions.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="https://www.work.ua/resumes/5536520/" target="_blank" rel="noopener" data-i18n="cta.resume">Download Resume (PDF)</a>
+        <a class="btn" href="mailto:paul.folvarochny+work@gmail" data-i18n="cta.email">Contact via Email</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- About -->
+    <section class="section about" id="about">
+      <div class="container">
+        <h2 data-i18n="about.heading">About Me</h2>
+
+        <div class="about-card">
+          <div class="about-media" aria-hidden="true"><img class="avatar" src="img/Profile.png" alt=""></div>
+          <div class="about-text">
+            <p data-i18n="about.p1">I'm a passionate Automation &amp; Integration Specialist with over 8 years of experience...</p>
+            <p data-i18n="about.p2">My expertise spans across API development...</p>
+            <p data-i18n="about.p3">I work with modern technologies including Python...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="section cases" id="cases">
+      <div class="container">
+        <h2 data-i18n="cases.heading">Case Studies</h2>
+        <p class="section-lead" data-i18n="cases.lead">Real-world solutions that demonstrate the power of thoughtful automation and integration</p>
+
+        <!-- Case 1 -->
+        <article class="case split">
+          <div class="case-media sticky">
+          	<img
+    		class="case-img"
+    		src="img/Case1.png"
+    		alt="CRM Price Parser"
+    		loading="lazy"
+    		ecoding="async"
+  			/>
+  		  </div>
+          <div class="case-body">
+            <h3 data-i18n="cases.c1.title">E-commerce Integration Platform</h3>
+            <p data-i18n="cases.c1.text" data-i18n-html>Built a comprehensive integration platform ...</p>
+
+<div class="codeblock">
+  <div class="codeblock-head">
+    <span class="file">update.py + salesdrive_api.py</span>
+    <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+  </div>
+  <pre><code class="language-python"># Парсер прайсу → батч → SalesDrive (422-handling, логи)
+# Фрагменти з update.py та salesdrive_api.py (скорочено для презентації)
+
+for row in sheet.iter_rows(min_row=start_row):
+    # пропустити приховані рядки
+    if row[0].row in sheet.row_dimensions and sheet.row_dimensions[row[0].row].hidden:
+        continue
+
+    article_raw = clean_cell(row[article_col].value)
+    # пропустити порожні/неформатні артикули
+    if not article_raw or not re.match(r'^[\w\-\/]+$', article_raw):
+        continue
+
+    full_article = f"{brand_prefix}_{article_raw}"
+
+    raw_price = clean_cell(row[price_col].value).replace(",", ".")
+    if not raw_price:
+        log(f"⚠️ Пропущено {full_article} — порожня ціна")
+        continue
+
+    try:
+        price = float(raw_price)
+    except (ValueError, TypeError):
+        log(f"⚠️ Пропущено {full_article} — некоректна ціна: {repr(raw_price)}")
+        continue
+
+    # знижка/попередня обробка
+    if needs_processing and discount_percent:
+        price *= (1 - discount_percent / 100)
+
+    price = round(price, 2)
+    log(f"🔄 {full_article}: {price:.2f} {currency} (зі знижкою {discount_percent}%)")
+
+    batch.append({
+        "id": full_article, "sku": full_article,
+        "expenses": price, "currencyExpenses": currency
+    })
+    total_count += 1
+
+    if len(batch) >= BATCH_SIZE:
+        update_prices(batch)                 # → всередині викликає send_batch(...)
+        log(f"📤 Надіслано {len(batch)} товарів у CRM")
+        batch.clear()
+
+if batch:
+    update_prices(batch)
+    log(f"📤 Надіслано залишок {len(batch)} товарів у CRM")
+
+# --- salesdrive_api.py: надійна відправка батча з логами і 422-handling ------------------------
+
+def send_batch(batch):
+    url = f"{BASE_URL}/product-handler/"
+    payload = {
+        "form": API_KEY,
+        "action": "update",
+        "dontUpdateFields": [],
+        "product": batch
+    }
+
+    # лог останнього payload для дебагу
+    debug_log_path = os.path.join(BASE_DIR, "logs", "last_payload.json")
+    with open(debug_log_path, "w", encoding="utf-8") as f:
+        json.dump(payload, f, indent=4, ensure_ascii=False)
+
+    try:
+        response = requests.post(url, json=payload)
+
+        if response.status_code == 422:
+            product_id = batch[0].get("id", "❓")
+            with open(ERROR_LOG_PATH, "a", encoding="utf-8") as f:
+                f.write(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Артикул: {product_id}\n")
+                f.write(f"{response.text.strip()}\n\n")
+            log(f"❌ Помилка 422 — товар {product_id} не оновлено (деталі в crm_errors_responses.txt)")
+            return None
+
+        response.raise_for_status()
+        data = response.json()
+        log(f"✅ Оновлено {len(batch)} товарів — статус {response.status_code}")
+        return data
+
+    except Exception as e:
+        ids = ", ".join([item.get("id", "❓") for item in batch])
+        log(f"❌ Помилка при оновленні товарів: {e} | Артикул(и): {ids}")
+        return None</code></pre>
+</div>
+
+          </div>
+        </article>
+
+        <!-- Case 2 -->
+        <article class="case split reverse">
+          <div class="case-media sticky">
+          	<img
+    		class="case-img"
+    		src="img/Case2.png"
+    		alt="Google Sheets Price Creator"
+    		loading="lazy"
+    		ecoding="async"
+  			/>
+  		  </div>
+          <div class="case-body">
+            <h3 data-i18n="cases.c2.title">API Gateway &amp; Microservices</h3>
+            <p data-i18n="cases.c2.text" data-i18n-html>Designed and implemented a scalable API gateway ...</p>
+
+<div class="codeblock">
+  <div class="codeblock-head">
+    <span class="file">apps_script_parse_xml.js</span>
+    <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+  </div>
+  <pre><code class="language-javascript">// Apps Script (Google Sheets) — SalesDrive YML → Sheet
+// ⚠️ Чутливі дані не хардкодимо: URL беремо зі Script Properties.
+function parseXml() {
+  const doc = SpreadsheetApp.getActiveSpreadsheet();
+
+  // --- sheet bootstrap ---
+  let sheet;
+  try {
+    sheet = doc.getSheetByName('Settings');
+    sheet.clear();
+  } catch (e) {
+    sheet = doc.insertSheet();
+    sheet.setName('Settings');
+  }
+
+  // --- config (safe) ---
+  const PROPS = PropertiesService.getScriptProperties();
+  const YML_URL =
+    PROPS.getProperty('SALES_DRIVE_YML_URL') ||
+    'https://&lt;your-domain&gt;.salesdrive.me/export/yml/export.yml?publicKey=***';
+
+  // --- fetch & parse ---
+  const xmlText = UrlFetchApp.fetch(YML_URL, { muteHttpExceptions: true }).getContentText();
+  const docXml  = XmlService.parse(xmlText);
+  const root    = docXml.getRootElement();        // &lt;yml_catalog&gt;
+  const shop    = root.getChildren()[0];          // &lt;shop&gt;
+
+  const offers     = shop.getChildren('offers')[0].getChildren('offer');
+  const categories = shop.getChildren('categories')[0].getChildren('category');
+
+  // map категорій (на майбутнє)
+  const categoryById = {};
+  categories.forEach(c => {
+    categoryById[c.getAttribute('id').getValue()] = c.getText();
+  });
+
+  // --- header ---
+  const rows = [];
+  rows.push(['код товару', 'ціна', 'собівартість', 'кількість']);
+
+  // --- offers → rows ---
+  offers.forEach(o => {
+    const vendorCode  = o.getChildText('vendorCode') || '';
+    const price       = o.getChildText('price') || '';
+    const vendorPrice = o.getChildText('vendorprice') || '';
+    const qty         = o.getChildText('quantity_in_stock') || ''; // ✅
+    rows.push([vendorCode, price, vendorPrice, qty]);
+  });
+
+  // --- write to sheet ---
+  if (rows.length) {
+    sheet.getRange(1, 1, rows.length, rows[0].length).setValues(rows);
+  }
+
+  // --- timestamp ---
+  const ts = Utilities.formatDate(new Date(), 'GMT+3', 'dd.MM.yyyy HH:mm');
+  sheet.getRange('F1').setValue('Оновлено: ' + ts);
+}</code></pre>
+</div>
+
+          </div>
+        </article>
+
+        <!-- Case 3 -->
+        <article class="case split">
+        <div class="case-media sticky">
+            <img
+        class="case-img"
+        src="img/Case3.png"
+        alt="Telegram Bot-Helper"
+        loading="lazy"
+        ecoding="async"
+        />
+        </div>
+          <div class="case-body">
+            <h3 data-i18n="cases.c3.title">Data Migration &amp; ETL Pipeline</h3>
+            <p data-i18n="cases.c3.text" data-i18n-html>Orchestrated migration of 10TB+ legacy data ...</p>
+
+            <div class="codeblock">
+              <div class="codeblock-head">
+                <span class="file">tg_daily_kpi.py</span>
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              </div>
+  <pre><code class="language-python"># tg_daily_kpi.py — SalesDrive → вчорашні KPI → Telegram
+import os, time, requests
+from datetime import datetime, timedelta, timezone
+from collections import Counter
+
+SD_BASE = os.getenv("SALES_DRIVE_API_BASE", "https://<your-domain>.salesdrive.me/api")
+SD_KEY  = os.getenv("SALES_DRIVE_API_KEY",  "sd_***")
+TG_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN",  "6xxx:***")
+TG_CHAT  = os.getenv("TELEGRAM_CHAT_ID",    "123456789")
+
+HDRS = {"Authorization": f"Bearer {SD_KEY}", "Content-Type": "application/json"}
+KYIV = timezone(timedelta(hours=3))
+
+def date_range_yesterday():
+    end = datetime.now(KYIV).replace(hour=0, minute=0, second=0, microsecond=0)
+    start = end - timedelta(days=1)
+    # ISO в UTC для API
+    return (start.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            end.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            start.strftime("%d.%m.%Y"))
+
+def sd_get_orders(date_from, date_to):
+    """Лаконічний запит з м’яким ретраєм та простою пагінацією."""
+    page, out = 1, []
+    while True:
+        url = f"{SD_BASE.rstrip('/')}/orders"
+        params = {"dateFrom": date_from, "dateTo": date_to, "status": "completed", "page": page, "limit": 500}
+        backoff = 1.0
+        for _ in range(3):
+            try:
+                r = requests.get(url, headers=HDRS, params=params, timeout=20)
+                if r.status_code in (429, 502, 503, 504): time.sleep(backoff); backoff *= 2; continue
+                r.raise_for_status()
+                data = r.json()
+                chunk = data.get("orders") or data.get("items") or []
+                out.extend(chunk)
+                if not data.get("nextPage") and page >= data.get("pages", page): return out
+                page += 1
+                break
+            except requests.RequestException:
+                time.sleep(backoff); backoff *= 2
+    return out
+
+def aggregate(orders):
+    revenue = 0.0
+    items = Counter()
+    for o in orders:
+        revenue += float(o.get("total") or o.get("sum") or o.get("grandTotal") or 0)
+        for it in (o.get("items") or o.get("products") or []):
+            name = it.get("name") or it.get("title") or (it.get("sku") or it.get("article") or "item")
+            qty  = int(it.get("qty") or it.get("quantity") or 1)
+            items[name] += qty
+    orders_count = len(orders)
+    avg = revenue / orders_count if orders_count else 0.0
+    return revenue, orders_count, avg, items.most_common(5)
+
+def fmt_uah(v):  # просте форматування валюти
+    s = f"{v:,.2f}".replace(",", " ").replace(".", ",")
+    return f"{s} грн"
+
+def build_message(date_label, revenue, orders_cnt, avg, top_items):
+    top_lines = "\n".join([f"• {name} — x{qty}" for name, qty in top_items]) or "• (немає даних)"
+    return (
+        f"📊 *Щоденний звіт — {date_label}*\n"
+        f"┏━━━━━━━━━━━━━━\n"
+        f"┃ Виручка: *{fmt_uah(revenue)}*\n"
+        f"┃ Замовлень: *{orders_cnt}*\n"
+        f"┃ Середній чек: *{fmt_uah(avg)}*\n"
+        f"┗━━━━━━━━━━━━━━\n\n"
+        f"🏆 *Топ товари:*\n{top_lines}\n\n"
+        f"🤖 CRM → Telegram"
+    )
+
+def tg_send_md(msg):
+    url = f"https://api.telegram.org/bot{TG_TOKEN}/sendMessage"
+    requests.post(url, json={"chat_id": TG_CHAT, "text": msg, "parse_mode": "Markdown"}).raise_for_status()
+
+def main():
+    dfrom, dto, label = date_range_yesterday()
+    orders = sd_get_orders(dfrom, dto)
+    revenue, cnt, avg, top = aggregate(orders)
+    tg_send_md(build_message(label, revenue, cnt, avg, top))
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+            </div>
+          </div>
+        </article>
+
+        <!-- Case 4 -->
+        <article class="case split reverse">
+        <div class="case-media sticky">
+            <img
+        class="case-img"
+        src="img/Case4.png"
+        alt="Currency Fetcher"
+        loading="lazy"
+        ecoding="async"
+        />
+        </div>
+          <div class="case-body">
+            <h3 data-i18n="cases.c4.title">Cloud Infrastructure Automation</h3>
+            <p data-i18n="cases.c4.text" data-i18n-html>Automated deployment and monitoring across clouds ...</p>
+
+<div class="codeblock">
+  <div class="codeblock-head">
+    <span class="file">exchange_rates.js</span>
+    <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+  </div>
+  <pre><code class="language-javascript">(function () {
+  // Google Apps Script endpoint → JSON з актуальними курсами валют
+  var app = "https://script.google.com/macros/s/AKfycbz***********/exec"; // 🔒 сховано
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', app);
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState !== 4) return;
+    if (xhr.status === 200) {
+      try {
+        var r = JSON.parse(xhr.responseText);
+        var result = r["result"];
+      } catch(e) { return; }
+
+      console.log(result); // для дебагу
+
+      // Виводимо курси у відповідні DOM-елементи
+      document.getElementById('usd_b').innerHTML = result[0][1];
+      document.getElementById('usd_s').innerHTML = result[0][2];
+      document.getElementById('eur_b').innerHTML = result[1][1];
+      document.getElementById('eur_s').innerHTML = result[1][2];
+      document.getElementById('pln_b').innerHTML = result[2][1];
+      document.getElementById('pln_s').innerHTML = result[2][2];
+      document.getElementById('czk_b').innerHTML = result[5][1];
+      document.getElementById('czk_s').innerHTML = result[5][2];
+      document.getElementById('mdl_b').innerHTML = result[7][1];
+      document.getElementById('mdl_s').innerHTML = result[7][2];
+      document.getElementById('gbp_b').innerHTML = result[3][1];
+      document.getElementById('gbp_s').innerHTML = result[3][2];
+      document.getElementById('ron_b').innerHTML = result[9][1];
+      document.getElementById('ron_s').innerHTML = result[9][2];
+      document.getElementById('cad_b').innerHTML = result[4][1];
+      document.getElementById('cad_s').innerHTML = result[4][2];
+      document.getElementById('huf_b').innerHTML = result[6][1];
+      document.getElementById('huf_s').innerHTML = result[6][2];
+      document.getElementById('chf_b').innerHTML = result[8][1];
+      document.getElementById('chf_s').innerHTML = result[8][2];
+    }
+  };
+
+  xhr.send();
+})();</code></pre>
+</div>
+
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta" id="contact">
+      <div class="container">
+        <h2 data-i18n="cta2.heading">Ready to Automate Your Success?</h2>
+        <p data-i18n="cta2.lead">Let's discuss how automation and integration can transform your business processes.</p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:paul.folvarochny+work@gmail" data-i18n="cta2.primary">Start a Conversation</a>
+          <a class="btn" href="https://www.work.ua/resumes/5536520/" target="_blank" rel="noopener" data-i18n="cta2.secondary">Download Resume</a>
+        </div>
+        <p class="avail" data-i18n="cta2.avail" data-i18n-html><strong>Available for:</strong> Full-time • Consulting • Architecture reviews</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h3 class="footer-title">
+          <span class="dot" aria-hidden="true"></span>
+          <span data-i18n="footer.brand">Automation &amp; Integration</span>
+        </h3>
+        <p class="footer-tagline" data-i18n="footer.tagline">
+          Building reliable automations &amp; integrations that scale with your business.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="made">
+          <span class="made-with" data-i18n="footer.made">Made with ♥</span>
+          <span class="sep">&nbsp;|&nbsp;</span>
+          <span class="brand-mention" data-i18n="footer.concept" data-i18n-html>Concept with <strong>Lovable</strong></span>
+          <span class="sep">&nbsp;•&nbsp;</span>
+          <span class="brand-mention" data-i18n="footer.refined" data-i18n-html>Refined using <strong>ChatGPT Plus</strong></span>
+        </p>
+        <p class="legal" data-i18n="footer.copyright">© <span id="year"></span> All rights reserved.</p>
+      </div>
+    </div>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </footer>
+
+  <!-- Floating Telegram FAB -->
+  <a class="fab tg-fab" href="https://t.me/pashlikson" target="_blank" rel="noopener" aria-label="Contact via Telegram">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
+      <path d="M9.04 15.28 8.9 19.3c.57 0 .82-.24 1.12-.53l2.68-2.57 5.56 4.08c1.02.56 1.75.27 2.01-.95l3.65-17.1v0c.32-1.5-.54-2.08-1.53-1.72L1.57 9.33C.11 9.9.13 10.73 1.31 11.1l5.9 1.84 13.68-8.62c.64-.39 1.22-.17.74.24"/>
+    </svg>
+  </a>
+
+  <!-- i18n runtime with safe HTML support -->
+  <script>
+  (function(){
+    const FALLBACK='en', SUPPORTED=['en','uk'];
+    const els=[...document.querySelectorAll('[data-i18n]')];
+    const btns=document.querySelectorAll('.lang-switch [data-lang]');
+
+    // allow only these tags in HTML-enabled translations
+    const ALLOWED_TAGS=/^(strong|em|b|i|u|br)$/i;
+
+    function sanitizeHTML(html){
+      // drop script/style blocks
+      html = html.replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi,'')
+                 .replace(/<style[\s\S]*?>[\s\S]*?<\/style>/gi,'');
+      // strip inline on* handlers
+      html = html.replace(/\son\w+=(?:"[^"]*"|'[^']*')/gi,'');
+      // strip tags not in whitelist
+      return html.replace(/<\/?([a-z0-9-]+)(\s[^>]*)?>/gi,(m,tag)=> ALLOWED_TAGS.test(tag)?m:'');
+    }
+
+    const get=(o,p)=>p.split('.').reduce((a,k)=>a&&a[k],o);
+
+    function apply(dict,lang){
+      const year=new Date().getFullYear();
+      document.documentElement.lang=lang;
+      if(['ar','he','fa'].includes(lang)) document.documentElement.dir='rtl';
+      else document.documentElement.removeAttribute('dir');
+
+      els.forEach(node=>{
+        const key=node.dataset.i18n;
+        let val=get(dict,key);
+        if(typeof val!=='string') return;
+        val = val.replaceAll('{year}', year);
+
+        if(node.hasAttribute('data-i18n-html') || key.startsWith('footer.')){
+          node.innerHTML = sanitizeHTML(val);
+        }else{
+          node.textContent = val;
+        }
+      });
+
+      btns.forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.lang===lang)));
+    }
+
+    async function load(lang){
+      if(!SUPPORTED.includes(lang)) lang=FALLBACK;
+      try{
+        const res=await fetch(`i18n/${lang}.json`, {cache:'no-store'});
+        const dict=await res.json();
+        apply(dict,lang);
+        localStorage.setItem('lang',lang);
+      }catch(e){
+        console.error('i18n load error', e);
+      }
+    }
+
+    const urlLang=new URLSearchParams(location.search).get('lang');
+    const stored=localStorage.getItem('lang');
+    const nav=(navigator.language||'en').slice(0,2).toLowerCase();
+    const initial=urlLang || stored || (SUPPORTED.includes(nav)?nav:FALLBACK);
+
+    btns.forEach(b=>b.addEventListener('click',()=>load(b.dataset.lang)));
+    load(initial);
+  })();
+  </script>
+</body>
+</html>

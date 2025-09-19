@@ -1,0 +1,601 @@
+/* ===============================
+   Design tokens
+   =============================== */
+:root{
+  --bg:#ffffff;
+  --ink:#111827;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --surface:#ffffff;
+  --shadow:0 10px 28px rgba(17,24,39,.06);
+
+  --brand-200:#ddd6fe;
+  --brand-500:#8b5cf6;
+  --brand-600:#7c3aed;
+  --brand-700:#6d28d9;
+
+  --code-bg:#1e1e1e;
+  --code-head:#1e1e1e;
+  --code-border:#2a2a2a;
+}
+
+/* ===============================
+   Base
+   =============================== */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg); color:var(--ink); line-height:1.65;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+
+a{color:var(--brand-600);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Buttons (no underline anywhere) */
+.btn,
+.btn:link,
+.btn:visited,
+.btn:hover,
+.btn:focus{ text-decoration:none !important; }
+
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.8rem 1.15rem;border-radius:14px;border:1px solid var(--border);
+  background:#fff;color:var(--ink);font-weight:700;box-shadow:var(--shadow);
+  transition:transform 160ms ease,box-shadow 160ms ease,background-color 160ms ease,border-color 160ms ease;
+  will-change:transform;
+}
+.btn.primary{background:var(--brand-600);border-color:var(--brand-700);color:#fff}
+.btn:hover,.btn:focus{transform:scale(1.02);box-shadow:0 14px 30px rgba(17,24,39,.12)}
+.btn.primary:hover{background:var(--brand-700);border-color:var(--brand-700)}
+.btn:focus-visible{outline:2px solid var(--brand-600);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover,.btn:focus{transform:none;box-shadow:var(--shadow)}}
+.actions{display:flex;gap:1rem;flex-wrap:wrap}
+
+/* ===============================
+   HERO (full viewport height)
+   =============================== */
+.site-header{
+  min-height:100svh; /* safe viewport on mobile */
+  display:flex;align-items:center;
+  padding:0; /* відступи всередині у .header-inner */
+  text-align:center;
+  background:radial-gradient(900px 400px at 50% -10%,#f3e8ff 0%,transparent 60%),#fff;
+  border-bottom:1px solid var(--border);
+}
+.header-inner{padding:96px 0}
+.title{margin:0 0 14px}
+.title span{display:block}
+.title span:first-child{font-size:46px;line-height:1.1;font-weight:800}
+.title .subtitle{
+  font-size:46px;line-height:1.1;font-weight:800;
+  background:linear-gradient(90deg,var(--brand-500),var(--brand-600));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.tagline{margin:12px auto 26px;max-width:760px;color:var(--muted)}
+.site-header .actions{justify-content:center;align-items:center;margin-top:10px}
+
+/* ===============================
+   Sections (уніфіковані відступи)
+   =============================== */
+.section{padding:96px 0}
+.section h2{margin:0 0 12px;font-size:30px;font-weight:800;text-align:center;color:#111827}
+.section h2::after{
+  content:"";display:block;width:56px;height:4px;border-radius:999px;
+  margin:10px auto 0;background:linear-gradient(90deg,var(--brand-200),var(--brand-500));
+}
+.section-lead{margin:10px auto 32px;max-width:680px;color:var(--muted);text-align:center}
+
+/* ===============================
+   About
+   =============================== */
+.about-card{
+  margin-top:22px;background:var(--surface);border:1px solid var(--border);
+  border-radius:14px;padding:24px 26px;box-shadow:var(--shadow);
+  display:grid;grid-template-columns:112px 1fr;gap:20px 24px;align-items:start;
+}
+.about-media .avatar{
+  width:112px;height:112px;border-radius:50%;object-fit:cover;object-position:center;display:block;
+  background:linear-gradient(135deg,#eef1f6,#e6e9f2);border:1px solid var(--border);
+  box-shadow:0 8px 22px rgba(17,24,39,.08) inset;
+}
+.about-text p{margin:0 0 12px}
+
+/* ===============================
+   Case Studies
+   =============================== */
+.case{
+  background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  box-shadow:var(--shadow);padding:22px;margin:28px 0;
+  display:grid;grid-template-columns:1.05fr 1fr;grid-template-areas:"media body";
+  align-items:center;gap:24px;min-width:0;
+}
+.case .case-media{grid-area:media;min-width:0;max-width:100%}
+.case .case-body{grid-area:body;min-width:0;max-width:100%}
+
+.case.split.reverse{grid-template-columns:1fr 1.05fr;grid-template-areas:"body media"}
+
+.case h3{margin:0 0 10px;font-size:18px;font-weight:800;color:#1f2937}
+.case p{margin:0 0 14px;color:#1f2937;overflow-wrap:anywhere;word-break:break-word}
+
+.ph{
+  width:100%;max-width:100%;aspect-ratio:16/10;border-radius:12px;
+  background:linear-gradient(135deg,#f4f4f8,#ebeef5);border:1px solid var(--border);
+  box-shadow:var(--shadow);display:block;overflow:hidden;
+}
+
+/* ===============================
+   Code blocks + custom scrollbar
+   =============================== */
+.codeblock{
+  background:var(--code-bg);border:1px solid var(--code-border);border-radius:14px;
+  overflow:hidden;box-shadow:0 10px 24px rgba(2,6,23,.22);max-width:100%;
+}
+.codeblock-head{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:8px 12px;background:var(--code-head);color:#d4d4d4;border-bottom:1px solid #2d2d2d;font-size:12px;
+}
+.codeblock-head .file{font-weight:700;letter-spacing:.2px}
+.codeblock-head .dots i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#5a6477;margin-left:6px}
+
+/* прокрутка */
+.codeblock pre{
+  margin:0;padding:0;background:transparent;border:0;
+  overflow:auto; -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;                         /* Firefox */
+  scrollbar-color: var(--brand-500) transparent;/* Firefox */
+}
+.codeblock pre::-webkit-scrollbar{height:8px;width:8px}
+.codeblock pre::-webkit-scrollbar-track{background:transparent}
+.codeblock pre::-webkit-scrollbar-thumb{
+  background:linear-gradient(90deg,var(--brand-500),var(--brand-600));
+  border-radius:999px;
+}
+.codeblock pre::-webkit-scrollbar-corner{background:transparent}
+
+.codeblock pre code.hljs,
+.codeblock code.hljs{
+  display:block;padding:16px 18px;background:var(--code-bg);color:#d4d4d4;
+  font:13.5px/1.65 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;
+  tab-size:2;white-space:pre;max-width:100%;
+}
+
+/* ===============================
+   CTA
+   =============================== */
+.section.cta{
+  padding:96px 0;background:radial-gradient(900px 340px at 50% 0%,#f3e8ff 0%,transparent 60%),#fff;
+  border-top:1px solid var(--border);text-align:center;
+}
+.section.cta h2{margin-bottom:10px}
+.section.cta .actions{justify-content:center;margin:16px 0 12px}
+.section.cta .avail{margin-top:12px;color:var(--muted);font-size:14px}
+
+/* ===============================
+   Footer
+   =============================== */
+.site-footer{
+  background:#fff;
+  border-top:1px solid var(--border);
+  color:#6b7280;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns: 1.1fr auto auto;
+  align-items:center;
+  gap:24px;
+  padding:36px 0;
+}
+
+.footer-title{
+  margin:0 0 6px;
+  font-size:18px; font-weight:800; color:#111827;
+  display:flex; align-items:center; gap:10px;
+}
+.footer-title .dot{
+  width:10px;height:10px;border-radius:999px;display:inline-block;
+  background:linear-gradient(90deg,var(--brand-500),var(--brand-600));
+  box-shadow:0 0 0 3px rgba(139,92,246,.18);
+}
+.footer-tagline{margin:0;color:#6b7280}
+
+.footer-nav{
+  display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
+}
+.footer-link{
+  color:#374151; font-weight:600; padding:8px 10px; border-radius:10px;
+  border:1px solid transparent; text-decoration:none;
+}
+.footer-link:hover{
+  color:#111827; border-color:var(--border); background:#fff; box-shadow:var(--shadow);
+}
+
+.footer-social{ display:flex; gap:12px; justify-content:flex-end; }
+.icon-link{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:38px;height:38px;border-radius:12px; color:#4b5563;
+  background:#fff; border:1px solid var(--border); box-shadow:var(--shadow);
+  transition:transform .15s ease, box-shadow .15s ease, color .15s ease, border-color .15s ease;
+  text-decoration:none;
+}
+.icon-link:hover{
+  transform:translateY(-1px);
+  color:#111827; border-color:#d1d5db; box-shadow:0 10px 20px rgba(17,24,39,.12);
+}
+
+.footer-bottom{
+  border-top:1px solid var(--border);
+  text-align:center;
+  padding:16px 0 22px;
+}
+.footer-bottom .made{ margin:10px 0 6px }
+.footer-bottom .legal{ margin:0; font-size:14px }
+.footer-bottom .heart{
+  color:transparent;
+  -webkit-background-clip:text; background-clip:text;
+  background-image:linear-gradient(90deg,var(--brand-500),var(--brand-600));
+}
+.footer-bottom .brand-mention strong{
+  color:#111827;
+}
+
+/* Mobile layout */
+@media (max-width:768px){
+  .footer-grid{
+    grid-template-columns: 1fr;
+    text-align:center;
+    gap:16px;
+    padding:28px 0;
+  }
+  .footer-social{ justify-content:center; }
+  .footer-title{ justify-content:center }
+}
+
+/* ===============================
+   Mobile (<=768px)
+   =============================== */
+@media (max-width:768px){
+  .container{padding:0 16px}
+
+  .header-inner{padding:72px 0}
+  .title span:first-child{font-size:32px}
+  .title .subtitle{font-size:36px}
+  .tagline{max-width:520px}
+  .site-header .actions{flex-direction:column;gap:.65rem}
+  .btn{width:100%;justify-content:center}
+
+  .section{padding:72px 0}
+  .section h2{font-size:26px}
+
+  .about-card{grid-template-columns:1fr;padding:18px;gap:16px}
+  .about-media{display:flex;justify-content:center}
+  .about-media .avatar{width:96px;height:96px}
+
+  /* завжди media -> body, навіть для .split.reverse */
+  .case{grid-template-columns:1fr;grid-template-areas:"media" "body";gap:16px;padding:18px}
+  .case.split.reverse{grid-template-columns:1fr;grid-template-areas:"media" "body"}
+
+  .codeblock pre code.hljs{font-size:12.5px;padding:14px 14px}
+  .codeblock pre{max-height:360px}
+
+  .section.cta{padding:72px 0}
+}
+
+/* === Fix: mobile gutters for hero & CTA === */
+
+/* Desktop/tablet: тримаємо такий самий горизонтальний відступ, як у .container */
+.header-inner{ padding:96px 24px; }                /* було: 96px 0 */
+.section.cta .container{ padding:0 24px; }         /* гарантуємо однакові поля */
+
+/* Mobile */
+@media (max-width:768px){
+  .header-inner{ padding:72px 16px; }              /* було: 72px 0 */
+  .section.cta .container{ padding:0 16px; }       /* вирівнюємо з .container на мобілках */
+}
+
+html{ scroll-behavior: smooth; }
+
+/* ===== Floating Telegram button (FAB) — updated ===== */
+.fab{
+  position: fixed;
+  right: max(32px, env(safe-area-inset-right));           /* більше повітря */
+  bottom: calc(32px + env(safe-area-inset-bottom));
+  z-index: 60;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 56px; height: 56px; border-radius: 16px;
+  background: #fff;
+  color: #374151;
+  border: 1px solid var(--border);
+  box-shadow: 0 14px 30px rgba(17,24,39,.16), 0 3px 8px rgba(17,24,39,.06);
+  text-decoration: none;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, color .18s ease, background-color .18s ease;
+  position: fixed;
+  isolation: isolate;           /* для коректного рендера псевдоелемента */
+}
+@media (min-width:1024px){
+  .fab{
+    right: max(40px, env(safe-area-inset-right));         /* на великих екранах ще трохи далі від кутів */
+    bottom: calc(40px + env(safe-area-inset-bottom));
+  }
+}
+
+/* Телеграм — брендова іконка + легкий фіолетовий фон */
+.tg-fab{
+  background: radial-gradient(120% 120% at 30% 20%, #ffffff 0%, #faf8ff 60%, #ffffff 100%);
+  border-color: #e9e5ff;
+  color: var(--brand-600);       /* svg має fill="currentColor" — підхопить цей колір */
+}
+.tg-fab svg{ width: 26px; height: 26px; }
+
+/* Hover/Focus */
+.fab:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(17,24,39,.22), 0 6px 12px rgba(17,24,39,.10);
+  border-color: #d8d5ff;
+  color:#111827;
+}
+.tg-fab:hover{ color: var(--brand-700); }
+.fab:focus-visible{
+  outline: 3px solid rgba(124,58,237,.4); /* var(--brand-600) */
+  outline-offset: 3px;
+}
+
+/* Пульс: м’яке світлове кільце позаду кнопки */
+.fab::after{
+  content:"";
+  position:absolute; inset:0; border-radius:inherit;
+  pointer-events:none; z-index:-1;                     /* позаду і не блокує кліки */
+  box-shadow: 0 0 0 0 rgba(124,58,237,.35);
+  opacity: 0;
+  animation: tg-pulse 2.6s ease-out infinite;
+}
+@keyframes tg-pulse{
+  0%   { box-shadow: 0 0 0 0 rgba(124,58,237,.35); opacity:.75; transform: scale(1); }
+  70%  { box-shadow: 0 0 0 18px rgba(124,58,237,0); opacity:0;   transform: scale(1.04); }
+  100% { box-shadow: 0 0 0 0 rgba(124,58,237,0);   opacity:0;    transform: scale(1); }
+}
+
+/* Мобілки — трохи більша зона тапу, але відступи компактніші */
+@media (max-width:768px){
+  .fab{
+    width: 60px; height: 60px; border-radius: 18px;
+    right: max(18px, env(safe-area-inset-right));
+    bottom: calc(18px + env(safe-area-inset-bottom));
+  }
+  .tg-fab svg{ width: 28px; height: 28px; }
+}
+
+/* Reduce motion: без анімації та підстрибування */
+@media (prefers-reduced-motion: reduce){
+  .fab{ transition: none; }
+  .fab:hover{ transform:none; }
+  .fab::after{ animation: none; }
+}
+
+/* ===== Footer mobile clean-up ===== */
+@media (max-width:768px){
+  /* верхня частина футера — менше повітря, коротший текст */
+  .footer-grid{
+    padding: 18px 0 10px;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .footer-title{ font-size:16px; margin:0 }
+  .footer-tagline{
+    font-size:14px; line-height:1.5; margin: 2px 0 0; color:#6b7280;
+  }
+
+  /* нижня частина — компактніша типографіка */
+  .footer-bottom{ padding: 12px 0 16px }
+  .footer-bottom .container{ max-width: 480px } /* звужуємо рядок «Made with…» */
+  .footer-bottom .made{
+    margin:6px auto 4px; font-size:14px; color:#6b7280;
+  }
+  .footer-bottom .made .heart{ font-size:14px }
+  .footer-bottom .legal{ margin:0; font-size:12px; color:#9ca3af }
+
+  /* прибираємо розділювачі, щоб не рябіло */
+  .footer-bottom .made .sep{ display:none }
+
+  /* трошки збільшуємо міжряддя для читабельності */
+  .footer-bottom p{ line-height: 1.45 }
+}
+
+/* ==== Footer: center brand block on all viewports ==== */
+.site-footer .footer-grid{
+  grid-template-columns: 1fr;   /* одна колонка */
+  justify-items: center;        /* центруємо контент усередині гріда */
+  text-align: center;           /* і текст також */
+}
+
+/* трохи рівніших відступів на великих екранах */
+@media (min-width: 769px){
+  .site-footer .footer-grid{ padding: 32px 0 26px; gap: 12px; }
+}
+
+/* ==== FAB (Telegram): lift on mobile (≈3x higher) ==== */
+@media (max-width: 768px){
+  .fab{
+    /* було: bottom: calc(18px + env(...)) — підіймаємо утричі */
+    bottom: calc(86px + env(safe-area-inset-bottom));
+  }
+}
+
+/* ==== Footer mobile breathing room between separators ==== */
+@media (max-width: 768px){
+  /* верхня частина футера (перед першою лінією) */
+  .site-footer .footer-grid{
+    padding: 28px 0 24px;  /* було компактніше — додаємо повітря */
+    gap: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* нижня частина футера (після другої лінії) */
+  .footer-bottom{
+    padding: 24px 0 30px;  /* більше простору над/під текстом */
+  }
+
+  /* щоб рядок "Made with..." не ламався занадто вузько */
+  .footer-bottom .container{ max-width: 560px; }
+}
+
+/* Footer: stack "Made with…" into 3 lines on mobile */
+@media (max-width:768px){
+  .footer-bottom .made{
+    display:grid;
+    justify-items:center;
+    gap:6px;                 /* відстань між рядками */
+    text-align:center;
+  }
+  .footer-bottom .made .made-with,
+  .footer-bottom .made .brand-mention{
+    display:block;           /* кожен — окремий рядок */
+  }
+  .footer-bottom .made .sep{ display:none; } /* прибираємо розділювачі */
+}
+
+/* Case image */
+.case-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;          /* під твої картки */
+  background: #eef1f7;          /* при завантаженні/якщо зображення немає */
+  box-shadow: 0 10px 25px rgba(20, 20, 43, 0.06);
+}
+
+.case-media .ph { display: none; } /* більше не потрібна */
+
+.case-media .case-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;            /* заповнює картку без спотворень */
+  object-position: center;
+  border-radius: 16px;
+}
+
+/* Якщо це скрін/логи і важливо бачити все ціле, а не кроп — увімкни "contain" */
+.case-media .case-img.contain {
+  object-fit: contain;
+  background: #0f1320;          /* темний фон позаду скріна логів */
+}
+
+/* === Desktop fixes for case blocks === */
+@media (min-width: 1024px) {
+  /* 1) Вирівнюємо колонки кейсу по верхньому краю */
+  .case.split,
+  .case.split.reverse {
+    align-items: flex-start;   /* замість center */
+  }
+  .case.split .case-media,
+  .case.split .case-body {
+    align-self: flex-start;    /* про всяк випадок, якщо є внутрішні вирівнювання */
+  }
+
+  /* 2) Обмеження висоти сніпетів + прокрутка (як на мобілці) */
+  .codeblock pre {
+    max-height: 56vh;          /* можна 50–65vh під смак */
+    overflow: auto;            /* показуємо вертикальний скрол */
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Якщо десь лишилось загальне вирівнювання «по середині» через grid/flex */
+.case-media, .case-body { /* гарантуємо блочне поводження */
+  display: block;
+}
+
+/* (не обов’язково) трохи ніжніший скрол саме в код-блоках */
+.codeblock pre::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+.codeblock pre::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,.28);
+  border-radius: 8px;
+}
+.codeblock pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* --- Top align columns on desktop (залишаю, бо це коректно вирішує пункт 1) --- */
+@media (min-width: 1024px) {
+  .case.split,
+  .case.split.reverse {
+    align-items: flex-start;
+  }
+  .codeblock pre { max-height: 56vh; }   /* вертикальна межа для великих сніпетів */
+}
+
+/* --- Soft wrap for code lines (override highlight.js defaults) --- */
+.codeblock { min-width: 0; }              /* щоб флекс/грід не тягнувся по довжині рядка */
+.case-body  { min-width: 0; }
+
+/* сам контейнер з прокруткою лише по Y */
+.codeblock pre {
+  overflow-y: auto;
+  overflow-x: hidden;                     /* прибираємо горизонтальну смугу */
+  max-height: 56vh;                       /* можна підкрутити під себе */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* highlight.js зазвичай вішає .hljs всередині <code> */
+.codeblock pre code,
+.codeblock pre .hljs {
+  white-space: pre-wrap !important;       /* зберігає відступи + переносить рядки */
+  word-break: break-word;                 /* ламає довгі токени/URL */
+  overflow-wrap: anywhere;                /* ще агресивніше переносить за потреби */
+}
+
+/* деякі теми ставлять overflow-x:auto на .hljs — глушимо */
+.hljs { overflow-x: visible !important; }
+
+@media (min-width: 1024px) {
+  .case-media.sticky {
+    position: sticky;
+    top: 96px;     /* під заголовок/відступи сторінки */
+  }
+}
+
+/* Top-left logo — bigger, soft drop-shadow, NO background */
+.logo-top{
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1000;
+  display: inline-block;
+  line-height: 0;
+  text-decoration: none;
+  background: transparent !important;   /* форс: без підложки */
+  border: 0;
+}
+
+.logo-top::before,
+.logo-top::after{ content:none !important; } /* прибираємо будь-які псевдоелементи */
+
+.logo-top img{
+  height: 40px;                           /* трохи більше */
+  width: auto;
+  display: block;
+  background: transparent !important;     /* без фону точно */
+  filter:
+    drop-shadow(0 22px 48px rgba(17,24,39,.38))
+    drop-shadow(0 10px 22px rgba(17,24,39,.22));
+  transition: transform .18s ease, filter .18s ease;
+}
+
+.logo-top:hover img{
+  transform: translateY(-1px) scale(1.02);
+  filter:
+    drop-shadow(0 28px 60px rgba(17,24,39,.44))
+    drop-shadow(0 12px 26px rgba(17,24,39,.26));
+}
+
+@media (max-width: 768px){
+  .logo-top{ top: 12px; left: 12px; }
+  .logo-top img{ height: 32px; }
+}

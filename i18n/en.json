@@ -1,0 +1,52 @@
+{
+  "hero": {
+    "title1": "Automation & Integration Specialist",
+    "title2": "Portfolio",
+    "tagline": "I automate e-commerce processes: integrate CRM, marketplaces, and websites, build AI workflows. I transform chaotic data into clear automated processes that save businesses time and money."
+  },
+  "cta": {
+    "resume": "View Resume",
+    "email": "Send Email"
+  },
+  "about": {
+    "heading": "About Me",
+    "p1": "I specialize in automating business processes in e-commerce, but my experience goes beyond that. I’ve worked with OpenCart, WooCommerce, and Ukrainian marketplaces (Rozetka, Prom, Epicentr), where I built synchronization of stock levels and prices via CRM and XML feeds.",
+    "p2": "I develop integrations using Google Sheets + Apps Script, Python, and low-code/no-code tools; I create pipelines for parsing supplier price lists, updating purchase costs in CRM through API, and unifying different systems into one seamless workflow.",
+    "p3": "I also work as an administrator and project manager: optimizing infrastructure, configuring servers and caching, and ensuring stability. In addition, I have experience developing Telegram bots for various use cases."
+  },
+  "cases": {
+    "heading": "Case Studies",
+    "lead": "Practical cases of integrations, automations, and development I’ve implemented in real projects",
+    "c1": {
+      "title": "Supplier Price Parser → Purchase Costs in CRM",
+      "text": "A custom Python script that processes large supplier price lists (CSV/XLSX/HTML), cleans data, applies discounts, and converts currencies. Through the SalesDrive API, it updates purchase prices in the CRM with SKU validation and logging of changes. It replaced manual manager work and saves <strong>10–15 hours</strong> every week."
+    },
+    "c2": {
+      "title": "Pricing Model in Google Sheets ↔ CRM",
+      "text": "I built a pricing model in Google Sheets: importing costs from CRM, applying category coefficients/margins, using exchange rates, rounding, and ensuring minimum margin control. The result — automated calculation of sales prices and writing them back into CRM via Apps Script + API. Reduced errors and provided full transparency of the pricing formula."
+    },
+    "c3": {
+      "title": "Telegram Bot with Daily Revenue & KPI",
+      "text": "A helper bot that sends the manager a daily summary: revenue for the day/week, number of orders, average check, top products, and progress vs plan. Data is pulled from CRM, aggregated, and formatted into a readable report. The manager sees the big picture <strong>without logging into CRM</strong>."
+    },
+    "c4": {
+      "title": "Live Exchange Rates from Google Sheets on the Website",
+      "text": "The accountant updates rates in Google Sheets; the website fetches the fresh values on page load through a secure request. No code edits needed — the finance team has full control. This eliminated price discrepancies and simplified daily routine."
+    }
+  },
+  "cta2": {
+    "heading": "Ready to streamline your processes?",
+    "lead": "I help businesses get rid of manual routine: integrating websites, CRM, marketplaces, and automating data flows.",
+    "primary": "Start Collaboration",
+    "secondary": "View Resume",
+    "avail": "<strong>Available for:</strong> full-time • part-time • projects • consulting"
+  },
+  "footer": {
+    "brand": "Automation & Integration",
+    "tagline": "Automation that delivers results.",
+    "made": "Made with ♥ in Ukraine",
+    "concept": "Concept created in <strong>Lovable</strong>",
+    "refined": "Enhanced with <strong>ChatGPT Plus</strong>",
+    "copyright": "© {year} All rights reserved."
+  }
+}

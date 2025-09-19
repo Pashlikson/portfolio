@@ -1,0 +1,94 @@
+/* hero-anim.css — орби у вітальному блоці (без JS) */
+
+/* === Глобальний множник швидкості === */
+:root{ --orb-speed: 2.2; } /* ↑ піднімай, якщо хочеш ще швидше */
+
+/* Базові позиції */
+.site-header{ position:relative; overflow:hidden; }
+.header-inner{ position:relative; z-index:1; }
+.site-header .orbs{
+  position:absolute; inset:0;
+  pointer-events:none; z-index:0;
+}
+
+/* Контейнер орба */
+.site-header .orb{
+  position:absolute;
+  left: var(--x,10%); top: var(--y,10%);
+  width: var(--size,120px); height: var(--size,120px);
+  transform: translate3d(0,0,0);
+  will-change: transform;
+}
+
+/* Кулька на ::before — постійний дрейф */
+.site-header .orb::before{
+  content:""; position:absolute; inset:0; border-radius:9999px;
+  background: radial-gradient(circle at 30% 30%, #a78bfa 0%, #7c3aed 70%);
+  opacity:.26; filter:blur(.2px);
+  animation: drift calc(10s / var(--orb-speed)) ease-in-out var(--delay,0s) infinite alternate both;
+  transform: translate3d(0,0,0);
+}
+@media (max-width:768px){
+  .site-header .orb::before{ opacity:.20; }
+}
+
+/* Постійний дрейф */
+@keyframes drift{
+  0%{   transform: translate(0,0) scale(1); }
+  100%{ transform: translate(
+            calc(var(--dx,0px) * 2.4 * var(--orb-speed)),
+            calc(var(--dy,0px) * 2.4 * var(--orb-speed))
+         ) scale(1.05);
+  }
+}
+
+/* ===== Scroll-linked: виразна реакція під час прокрутки ХЕДЕРА ===== */
+@supports (animation-timeline: view(block)) {
+  @scroll-timeline heroView {
+    source: selector(.site-header);
+    axis: block;
+    range: cover;
+  }
+
+  .site-header .orb{
+    animation: scrollkick 1 both;
+    animation-timeline: heroView;
+    animation-range: cover;
+  }
+
+  @keyframes scrollkick{
+    from { transform: translate3d(0,0,0); }
+    to   { transform: translate3d(
+              calc(var(--dx,0px) * 3.2 * var(--orb-speed)),
+              calc(var(--dy,0px) * 3.2 * var(--orb-speed)),
+              0);
+    }
+  }
+}
+
+/* ===== Фолбек для браузерів без view-timeline (але з scroll-timeline) ===== */
+@supports (animation-timeline: scroll(root)) and not (animation-timeline: view(block)) {
+  @scroll-timeline heroScroll {
+    source: root;
+    orientation: block;
+    range: auto;
+  }
+  .site-header .orb{
+    animation: scrollkick 800px linear both;
+    animation-timeline: heroScroll;
+  }
+  @keyframes scrollkick{
+    from { transform: translate3d(0,0,0); }
+    to   { transform: translate3d(
+              calc(var(--dx,0px) * 2.5 * var(--orb-speed)),
+              calc(var(--dy,0px) * 2.5 * var(--orb-speed)),
+              0);
+    }
+  }
+}
+
+/* ===== Поважаємо reduce-motion ===== */
+@media (prefers-reduced-motion: reduce){
+  .site-header .orb{ animation:none !important; transform:none !important; }
+  .site-header .orb::before{ animation:none !important; opacity:.12; }
+}
