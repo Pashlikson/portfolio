@@ -634,20 +634,6 @@ html{ scroll-behavior: smooth; }
     0 0 0 6px rgba(108, 59, 245, 0.10);   /* легкий глоу-ореол */
 }
 
-/* Маленька біла "іскра" всередині — як у твоєму маркері */
-.about .bullets p::after{
-  content: "";
-  position: absolute;
-  left: 3px;
-  top: 0.95em;
-  transform: translateY(-50%);
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #fff;
-  opacity: .95;
-}
-
 /* Трошки компактніше на телефонах */
 @media (max-width: 768px){
   .about .bullets p{
