@@ -599,3 +599,66 @@ html{ scroll-behavior: smooth; }
   .logo-top{ top: 12px; left: 12px; }
   .logo-top img{ height: 32px; }
 }
+
+/* ===== About: bullets + розрядка між абзацами ===== */
+:root{
+  --ai-purple: #6C3BF5;         /* твій фірмовий */
+  --ai-purple-2: #9C6CFF;       /* легший для градієнта */
+}
+
+/* Робимо абзаци "пухкішими" і додаємо місце для маркера */
+.about .bullets p{
+  position: relative;
+  padding-left: 34px;          /* місце під буліт */
+  margin: 22px 0 28px;         /* повітря між абзацами */
+  line-height: 1.65;           /* читабельніше полотно */
+}
+
+/* Перший абзац можна трохи піджати зверху (опційно) */
+.about .bullets p:first-child{ margin-top: 6px; }
+
+/* Маркер: фіолетовий кружечок із м'яким сяйвом */
+.about .bullets p::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.95em;                 /* центр приблизно по першому рядку */
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(45% 45% at 50% 50%, var(--ai-purple-2) 0%, var(--ai-purple) 100%);
+  box-shadow:
+    0 10px 24px rgba(108, 59, 245, 0.20),
+    0 4px 10px rgba(108, 59, 245, 0.18),
+    0 0 0 6px rgba(108, 59, 245, 0.10);   /* легкий глоу-ореол */
+}
+
+/* Маленька біла "іскра" всередині — як у твоєму маркері */
+.about .bullets p::after{
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 0.95em;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: .95;
+}
+
+/* Трошки компактніше на телефонах */
+@media (max-width: 768px){
+  .about .bullets p{
+    padding-left: 28px;
+    margin: 18px 0 22px;
+    line-height: 1.6;
+  }
+  .about .bullets p::before{ width: 10px; height: 10px; box-shadow:
+      0 8px 18px rgba(108,59,245,.18),
+      0 3px 8px rgba(108,59,245,.16),
+      0 0 0 5px rgba(108,59,245,.08);
+  }
+  .about .bullets p::after{ left: 2.5px; width: 3.5px; height: 3.5px; }
+}
